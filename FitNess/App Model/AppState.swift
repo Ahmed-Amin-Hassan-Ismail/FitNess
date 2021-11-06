@@ -28,6 +28,6 @@
 
 import Foundation
 
-public enum AppState {
+enum AppState {
   case notStarted, inProgress, paused, completed, caught
 }

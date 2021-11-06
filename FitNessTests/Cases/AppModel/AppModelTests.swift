@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import FitNess
+@testable import FitNess
 
 class AppModelTests: XCTestCase {
   
@@ -19,8 +19,8 @@ class AppModelTests: XCTestCase {
   }
   
   override func tearDown() {
-    super.tearDown()
     self.sut = nil
+    super.tearDown()
   }
 
 
