@@ -14,8 +14,11 @@ The name of the game in TDD is red, green, refactor. This means iteratively writ
 3. Clean up test(s) and code as needed (refactor).
 4. Repeat the process until all the logic cases are covered.
 
+---------------------------------------------
+---------------------------------------------
 
-Structure of XCTestCase subclass :
+## Structure of XCTestCase subclass :
+
 XCTest : is in the family of test frameworks dervied from XUnit
 
 - so now what is XUnit ? 
