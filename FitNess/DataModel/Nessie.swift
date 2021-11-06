@@ -1,5 +1,5 @@
 //
-//  DataModel.swift
+//  Nessie.swift
 //  FitNess
 //
 //  Created by Amin  on 06/11/2021.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum AppState {
-  case notStarted, inProgress, paused, completed, caught
+class Nessie {
+  var distance: Double = 0
 }

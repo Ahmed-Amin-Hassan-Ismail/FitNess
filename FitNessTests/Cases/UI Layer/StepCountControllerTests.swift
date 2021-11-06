@@ -33,6 +33,8 @@ class StepCountControllerTests: XCTestCase {
   }
   
   func testSetpCountController_whenStartTapped_appIsInProgress() {
+    //Give
+    self.givenGoalSet()
     //when
     self.whenStartStopButtonTapped()
     //then
@@ -41,6 +43,8 @@ class StepCountControllerTests: XCTestCase {
   }
   
   func testStepCountController_whenStartTapped_buttonLabelPause() {
+    //Give
+    self.givenGoalSet()
     //when
     self.whenStartStopButtonTapped()
     //then
@@ -56,6 +60,10 @@ extension StepCountControllerTests {
   
   private func whenStartStopButtonTapped() {
     sut.startStopPause(nil)
+  }
+  
+  private func givenGoalSet() {
+    AppModel.instance.dataModel.goal = 1000
   }
   
 }
