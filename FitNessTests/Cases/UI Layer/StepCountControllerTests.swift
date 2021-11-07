@@ -20,7 +20,6 @@ class StepCountControllerTests: XCTestCase {
   }
   
   override func tearDown() {
-    AppModel.instance.dataModel.goal = nil
     AppModel.instance.restart()
     sut.updateUI()
     super.tearDown()
@@ -61,6 +60,22 @@ class StepCountControllerTests: XCTestCase {
     XCTAssertEqual(AppModel.instance.dataModel.goal, 50)
   }
   
+  func testStepCount_whenStartTapped_appInProgress() {
+    // Given
+    self.givenInProgress()
+    // When
+    // Then
+    XCTAssertEqual(AppModel.instance.appState, .inProgress)
+  }
+  
+  func testStepCount_whenPauseTapped_appInPaused() {
+    // Given
+    self.givenPaused()
+    // When
+    // Then
+    XCTAssertEqual(AppModel.instance.appState, .paused)
+  }
+  
   // MARK:- Chase View
   func testChaseView_whenLoaded_isNotStarted() {
     // When
@@ -92,8 +107,13 @@ extension StepCountControllerTests {
     AppModel.instance.dataModel.goal = 1000
   }
   
-  func givenInProgress() {
-    givenGoalSet()
+  private func givenInProgress() {
+    self.givenGoalSet()
+    sut.startStopPause(nil)
+  }
+  
+  private func givenPaused() {
+    self.givenInProgress()
     sut.startStopPause(nil)
   }
   

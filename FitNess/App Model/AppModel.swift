@@ -24,7 +24,12 @@ class AppModel {
     self.appState = .inProgress
   }
   
+  public func pause() {
+    appState = .paused
+  }
+  
   public func restart() {
     appState = .notStarted
+    dataModel.restart()
   }
 }

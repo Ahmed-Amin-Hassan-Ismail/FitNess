@@ -48,15 +48,19 @@ class StepCountController: UIViewController {
   }
 
   @IBAction func startStopPause(_ sender: Any?) {
-    do {
-      try AppModel.instance.start()
-    } catch {
-      self.showNeedGoalAlert()
+    switch AppModel.instance.appState {
+    case .notStarted:
+      self.start()
+    case .inProgress:
+      AppModel.instance.pause()
+    case .paused:
+      self.start()
+    case .caught , .completed:
+      AppModel.instance.restart()
     }
     
     self.updateUI()
   }
-  
 }
 
 
@@ -71,6 +75,14 @@ extension StepCountController {
   private func updateButton() {
     let title = AppModel.instance.appState.nextStateButtonLabel
     self.startButton.setTitle(title, for: .normal)
+  }
+  
+  private func start() {
+    do {
+      try AppModel.instance.start()
+    } catch {
+      self.showNeedGoalAlert()
+    }
   }
   
   private func showNeedGoalAlert() {
