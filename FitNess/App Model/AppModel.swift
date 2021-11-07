@@ -23,4 +23,8 @@ class AppModel {
     guard self.dataModel.goal != nil else { throw AppError.goalNotSet }
     self.appState = .inProgress
   }
+  
+  public func restart() {
+    appState = .notStarted
+  }
 }

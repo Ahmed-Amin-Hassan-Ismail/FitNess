@@ -63,7 +63,7 @@ class StepCountController: UIViewController {
 //MARK:- Helper Methods
 extension StepCountController {
   
-  private func updateUI() {
+  func updateUI() {
     updateButton()
     updateChaseView()
   }
@@ -104,8 +104,8 @@ extension StepCountController {
     present(alertController, animated: true)
   }
   
-  private func updateGoal(newGoal: Int) {
-    // update this function
+  func updateGoal(newGoal: Int) {
+    AppModel.instance.dataModel.goal = newGoal
   }
   
 }
@@ -114,6 +114,6 @@ extension StepCountController {
 extension StepCountController {
   
   private func updateChaseView() {
-    // update this function
+    self.chaseView.state = AppModel.instance.appState
   }
 }

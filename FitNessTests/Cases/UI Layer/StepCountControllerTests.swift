@@ -15,18 +15,19 @@ class StepCountControllerTests: XCTestCase {
 
   override func setUp() {
     super.setUp()
-    self.sut = StepCountController()
+    let rootViewController = loadRootViewController()
+    self.sut = rootViewController.stepCounter
   }
   
   override func tearDown() {
-    self.sut = nil
+    AppModel.instance.dataModel.goal = nil
+    AppModel.instance.restart()
+    sut.updateUI()
     super.tearDown()
     
   }
   
   func testStepCountController_whenCreated_buttonLabelStart() {
-    // when
-    sut.viewDidLoad()
     // then
     let text = sut.startButton.title(for: .normal)
     XCTAssertEqual(text, AppState.notStarted.nextStateButtonLabel)
@@ -52,6 +53,31 @@ class StepCountControllerTests: XCTestCase {
     XCTAssertEqual(text, AppState.inProgress.nextStateButtonLabel)
   }
   
+  func testStepCountController_whenGoalUpdate_updatesNewState() {
+    // Given
+    // When
+    sut.updateGoal(newGoal: 50)
+    // Then
+    XCTAssertEqual(AppModel.instance.dataModel.goal, 50)
+  }
+  
+  // MARK:- Chase View
+  func testChaseView_whenLoaded_isNotStarted() {
+    // When
+    let chaseView = sut.chaseView
+    // Then
+    XCTAssertEqual(chaseView?.state, AppState.notStarted)
+  }
+  
+  func testChaseView_whenInProgress_viewInProgress() {
+    // Given
+    self.givenInProgress()
+    // When
+    let chaseView = sut.chaseView
+    // Then
+    XCTAssertEqual(chaseView?.state, AppState.inProgress)
+  }
+  
 }
 
 
@@ -64,6 +90,11 @@ extension StepCountControllerTests {
   
   private func givenGoalSet() {
     AppModel.instance.dataModel.goal = 1000
+  }
+  
+  func givenInProgress() {
+    givenGoalSet()
+    sut.startStopPause(nil)
   }
   
 }

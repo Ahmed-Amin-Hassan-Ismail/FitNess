@@ -51,6 +51,17 @@ class AppModelTests: XCTestCase {
     // Then
     XCTAssertEqual(observedState, AppState.inProgress)
   }
+  
+  func testAppModel_whenReset_isNotStartedState() {
+    // Gien
+    givenInProgress()
+    // When
+    sut.restart()
+    // Then
+    XCTAssertEqual(sut.appState, .notStarted)
+    
+  }
+  
 }
 
 //MARK:- Helper Methods
@@ -58,5 +69,10 @@ extension AppModelTests {
   
   private func givenGoalSet() {
     sut.dataModel.goal = 1000
+  }
+  
+  private func givenInProgress() {
+    givenGoalSet()
+    try! sut.start()
   }
 }
