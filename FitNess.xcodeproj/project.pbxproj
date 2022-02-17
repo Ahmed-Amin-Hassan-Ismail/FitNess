@@ -21,6 +21,7 @@
 		15978F7C273735F400ED4A3F /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15978F7B273735F400ED4A3F /* AppError.swift */; };
 		15DF8F60273829B7000BCD4E /* ViewControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF8F5F273829B7000BCD4E /* ViewControllers.swift */; };
 		15DF8F6327382A4B000BCD4E /* RootViewController+Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF8F6227382A4B000BCD4E /* RootViewController+Tests.swift */; };
+		5373962B27BEB2CF00076932 /* ButtonObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5373962A27BEB2CF00076932 /* ButtonObserver.swift */; };
 		5C2901831F8F6DE700803663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C2901821F8F6DE700803663 /* LaunchScreen.storyboard */; };
 		D2A5F20B1F4A9144005CD714 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2A5F20A1F4A9144005CD714 /* Assets.xcassets */; };
 		D2A5F2211F4A96D0005CD714 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A5F2201F4A96D0005CD714 /* AppDelegate.swift */; };
@@ -54,6 +55,7 @@
 		15978F7B273735F400ED4A3F /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		15DF8F5F273829B7000BCD4E /* ViewControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllers.swift; sourceTree = "<group>"; };
 		15DF8F6227382A4B000BCD4E /* RootViewController+Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RootViewController+Tests.swift"; sourceTree = "<group>"; };
+		5373962A27BEB2CF00076932 /* ButtonObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonObserver.swift; sourceTree = "<group>"; };
 		5C2901821F8F6DE700803663 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2A5F2001F4A9144005CD714 /* FitNess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FitNess.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A5F20A1F4A9144005CD714 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				15DF8F5F273829B7000BCD4E /* ViewControllers.swift */,
+				5373962A27BEB2CF00076932 /* ButtonObserver.swift */,
 			);
 			path = TestClasses;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15DF8F6327382A4B000BCD4E /* RootViewController+Tests.swift in Sources */,
+				5373962B27BEB2CF00076932 /* ButtonObserver.swift in Sources */,
 				15978F7527372FEC00ED4A3F /* DataModelTests.swift in Sources */,
 				151C4A1F2731E7240038812D /* AppModelTests.swift in Sources */,
 				15DF8F60273829B7000BCD4E /* ViewControllers.swift in Sources */,

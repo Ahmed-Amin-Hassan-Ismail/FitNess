@@ -93,6 +93,39 @@ class StepCountControllerTests: XCTestCase {
     XCTAssertEqual(chaseView?.state, AppState.inProgress)
   }
   
+  func testController_whenCaught_buttonLabelsIsTryAgain() {
+    // Given
+    givenInProgress()
+    let exp = expectation(description: "button title change")
+    let observer = buttonObserver()
+    observer.observe(sut.startButton, expectation: exp)
+    
+    // When
+    whenCaught()
+    
+    // Then
+    waitForExpectations(timeout: 1)
+    let text = sut.startButton.title(for: .normal)
+    XCTAssertEqual(text, AppState.caught.nextStateButtonLabel)
+    
+  }
+  
+  func testController_whenComplete_buttonLabelIsStartOver() {
+    // Given
+    givenInProgress()
+    let exp = expectation(description: "button title change")
+    let observer = buttonObserver()
+    observer.observe(sut.startButton, expectation: exp)
+    
+    // When
+    whenCompleted()
+    
+    // Then
+    waitForExpectations(timeout: 1)
+    let text = sut.startButton.title(for: .normal)
+    XCTAssertEqual(text, AppState.completed.nextStateButtonLabel)
+  }
+  
 }
 
 
